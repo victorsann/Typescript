@@ -6,8 +6,7 @@
 
 <h4>Documentação Oficial: https://www.typescriptlang.org/</h4>
 
-O Typescript é um superSet Javascript criado pela Microsft, comumente utilizado em aplicações Web front-end, mas abstante, pode
-ser utilizado no server-side através do Node.js.
+O Typescript é um superSet Javascript criado pela Microsft, comumente utilizado em aplicações Web front-end(Angular, React, etc.), mas não abstante, pode ser utilizado no server-side através do Node.js.
 
 O Typescript reune e eleva todas as funcionalidades do Javascript, dando a elas novas funcionalidades, como a inclusão do paradigma da Programação Orienta a Objetos e seus pilares, definições de tipos menos flexíveis, declaração de classes, interfaces e mais.
 
