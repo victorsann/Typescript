@@ -13,7 +13,7 @@ O Typescript reune e eleva todas as funcionalidades do Javascript, dando a elas 
 Um arquivo .ts não é diretamente interpretado pelo navegador e sim compilado(ou traspilado) para um arquivo .js, este sim sendo interpretado, o que torna possível desenvolver com o Typescript praticamente em qualquer ambiente em que é possível interpretar o Javascript. Além disso, praticamente nada da sintaxe do Javascript se perde quando se escreve código em Typescript, o que permite escrever trechos de Javascript em um arquivo .ts.
 
 
-<h1>Hello World</h1>
+<h1>Instalação</h1>
 
 
 Antes de escrever o popular Hello World, é preciso obter o Typescript e instalá-lo, o que pode ser feito da seguinte forma:
@@ -55,3 +55,8 @@ O comando tsc dá acesso ao The TypeScript Compiler e a uma lista de comandos co
       Compiles the current project, with additional settings.
 
 Além disso temos acesso a COMMAND LINE FLRAGS e ao COMPILER OPTIONS.
+
+
+<h1>Hello World</h1>
+
+
