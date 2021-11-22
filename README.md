@@ -16,46 +16,27 @@ Um arquivo .ts não é diretamente interpretado pelo navegador e sim compilado(o
 <h1>Instalação</h1>
 
 
-Antes de escrever o popular Hello World, é preciso obter o Typescript e instalá-lo, o que pode ser feito da seguinte forma:
+Para ter acesso a linguagem e suas funcionalidades é preciso determinar como esta será utilizada. O Angular, por exemplo, deixa claro que o Typescript deve ser usado em todo o processo de criação e desenvolvimento, já que a lingagem é tida como padrão do framework. O Node, por sua vez, permite fazer uso dos arquivos e códigos .ts mediante a instalação, logo, usar o Typescript é uma opção do desenvolvedor.
 
-Primeiramente garanta que o Node.js esteja instalado na sua máquina, pois é através dele que iremos instalar o Typescript. O link a seguir indica a forma correta de instalar a ferramenta e explica um pouco mais sobre a mesma: [Node.js](https://github.com/VictorSantos12/Node.js).
+Essa documentação pretende demonstrar o uso do superSet JS em ambos os ambientes, começando pelo server-side. Com isso, siga o passo a passo que será descrito a seguir:
 
-Tendo o Node instalado, acesse o terminal de comando e, usando o npm, faça o run do comando a seguir:
 
-    npm install -g typescript
+<h2>Node</h2>
 
-Com isso, o o Typescript foi globalmente instalado na sua máquica, e já comandos tsc já podem ser interpretados no terminal:
 
-    tsc
+O Node é sem dúvidas uma das ferramentas mais utilizadas por desenvolvedores Javascript, não só por ser prática e bastante poderosa em termos de desenvolvimento, mas porque o Node marca presença em boa parte dos frameworks web que usam o ECMAScript. Sendo também uma alternativa bastante usual no desenvolviento client-side, é com ele que iremos entender e aplicar os conceitos do Typescript. Para melhor entender e instalar o Node, leia a documentação a seguir: 
 
-O comando tsc dá acesso ao The TypeScript Compiler e a uma lista de comandos comuns como:
+[Node.js](https://github.com/VictorSantos12/Node.js)
 
-    COMMON COMMANDS
+Após a instalação, crie um novo projetos Node:
+
+    npm init
+
+<br>
+
+    yarn init -y
+
     
-      tsc
-      Compiles the current project (tsconfig.json in the working directory.)
-    
-      tsc app.ts util.ts
-      Ignoring tsconfig.json, compiles the specified files with default compiler options.
-    
-      tsc -b
-      Build a composite project in the working directory.
-    
-      tsc --init
-      Creates a tsconfig.json with the recommended settings in the working directory.
-    
-      tsc -p ./path/to/tsconfig.json
-      Compiles the TypeScript project located at the specified path.
-    
-      tsc --help --all
-      An expanded version of this information, showing all possible compiler options
-    
-      tsc --noEmit
-      tsc --target esnext
-      Compiles the current project, with additional settings.
-
-Além disso temos acesso a COMMAND LINE FLRAGS e ao COMPILER OPTIONS.
-
 
 <h1>Hello World</h1>
 
