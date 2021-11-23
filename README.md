@@ -355,6 +355,47 @@ O resultado da atualização conta com um novo require do express através do im
     });
 
 
-<h2>Configurações Importantes</h2>
+<h2>outDir</h2>
 
 
+Neste momento temos dois arquivos index no projeto, o que não é um problema enquanto são dois arquivos apenas. Porém, futuramente, um acúmulo de arquivos tornaria o projeto inviável. O outDir é uma das várias configurações disponíveis para o Typescript, sendo esta responsável por define um deretório para armazenar o código Javascript gerado no processo de transpilação. Para ativar esse recurso, vá até a tsconfig.json file e remova o trecho que comenta o outDir, e em seguida defina entre as aspas o path que indique o nome do diretório que irá conter os arquivos gerados:
+
+    
+    "outDir": "./dist"
+
+
+Após definir o path, delete o arquivo index.js criado na src folder e torne a fazer o run do comando a seguir:
+
+
+    yarn tsc
+
+
+Em seguida, a pasta contendo o arquivo index.js será criada, separando de forma correta os arquivos .ts e o código transpilado.
+
+
+<h2>ts-node-dev</h2>
+
+
+Para completar o ambiente de desenvolvimento, precisamos otimizar os processos. Fica evidente o quão trabalhoso seria ter que executar um comando no terminal sempre que houvesse uma alteração. O node, por exemplo, utiliza de ferramentas como o nodemon para compilar o código sem necessariamente ter que derrubar o servidor em criação, o que é bastante útil. Porém, como já foi dito, o Node não entende a sintaxe do Typescript diretamente, logo, o que deve ser otimizado é o processo de transpilação para Javascript, e é neste ponto que o ts-node-dev se aplica. Para para obter a ferramenta, use o comando a seguir:
+
+
+    npm i ts-node-dev --save-dev
+    
+    yarn add ts-node-dev --dev
+
+
+Tendo o concluído a instalação, iremos criar um scripts para automatizar o processo de transpilação. Na package.json file, faça a seguinte inserção:
+
+
+    "scripts": {
+      "dev:server": "ts-node-dev --respawn --transpile-only src/index.ts"
+    },
+
+
+As flags adicionadas ao script dev:server, além de definirem o respawn dos arquivos atualizados, definem a não verificação de erros no arquivo declarado, já que o próprio vscode mostra onde há erros, e também porque é um processo bastante custoso para ser feito a cada atualização. Em seguida, execute o script:
+
+    
+    yarn dev:server
+
+
+O resultado esperado é a ativação do servidor e a mensagem de confirmação no terminal. Além disso, caso a mensagem definida como response ao request da rota inicial for alterada, a mudança deve ser notada automaticamente no localhost:PORT.
