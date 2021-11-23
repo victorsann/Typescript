@@ -376,7 +376,7 @@ Em seguida, a pasta contendo o arquivo index.js será criada, separando de forma
 <h2>ts-node-dev</h2>
 
 
-Para completar o ambiente de desenvolvimento, precisamos otimizar os processos. Fica evidente o quão trabalhoso seria ter que executar um comando no terminal sempre que houvesse uma alteração. O node, por exemplo, utiliza de ferramentas como o nodemon para compilar o código sem necessariamente ter que derrubar o servidor em criação, o que é bastante útil. Porém, como já foi dito, o Node não entende a sintaxe do Typescript diretamente, logo, o que deve ser otimizado é o processo de transpilação para Javascript, e é neste ponto que o ts-node-dev se aplica. Para para obter a ferramenta, use o comando a seguir:
+Para completar o ambiente de desenvolvimento, precisamos otimizar os processos. Fica evidente o quão trabalhoso seria ter que executar um comando no terminal sempre que houvesse uma alteração. O node, por exemplo, utiliza de ferramentas como o nodemon para compilar o código sem necessariamente ter que derrubar o servidor em criação, o que é bastante útil. Porém, como já foi dito, o Node não entende a sintaxe do Typescript diretamente, logo, o que deve ser otimizado é o processo de transpilação para Javascript, e é neste ponto que o [ts-node-dev](https://www.npmjs.com/package/ts-node-dev) se aplica. Para para obter a ferramenta, use o comando a seguir:
 
 
     npm i ts-node-dev --save-dev
@@ -399,3 +399,14 @@ As flags adicionadas ao script dev:server, além de definirem o respawn dos arqu
 
 
 O resultado esperado é a ativação do servidor e a mensagem de confirmação no terminal. Além disso, caso a mensagem definida como response ao request da rota inicial for alterada, a mudança deve ser notada automaticamente no localhost:PORT.
+
+
+<h1>Destrinchando o Typescript</h1>
+
+
+O TypeScript mantém uma relação incomum com o JavaScript. O TypeScript oferece todos os recursos do JavaScript e uma camada adicional sobre eles: o sistema de tipos do TypeScript.
+
+Por exemplo, o Javascript fornece tipos primitivos como string number, mas não verifica se você os atribuiu de forma consistente, o Typescript sim. Isso significa que seu código Javascript existente também é código Typescript.
+
+O principal benefício do Typescript é a sua capacidade de identificar comportamento inesperados no seu código, diminuindo a chance de bugs. Esse recurso é bastante familiar a desenvolvedores Javascript que fazem uso do Visual Studio Code, já que o editor usa Typescript por baixo dos panos para facilitar desenvolver com o Javascript.
+
