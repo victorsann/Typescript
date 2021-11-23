@@ -10,7 +10,7 @@ O Typescript é um superSet Javascript criado pela Microsft, comumente utilizado
 
 Ele reune e eleva todas as funcionalidades do Javascript, dando a elas novas formas de uso, como a inclusão do paradigma da Programação Orientada a Objetos e seus pilares, definições de tipos menos flexíveis, declaração de classes, interfaces e mais.
 
-Um arquivo .ts não é diretamente interpretado pelo navegador e sim compilado(ou traspilado) para um arquivo .js, este sim sendo interpretado, o que torna possível desenvolver com o Typescript praticamente em qualquer ambiente em que é possível interpretar o Javascript. Além disso, praticamente nada da sintaxe do Javascript se perde quando se escreve código em Typescript, o que permite escrever trechos de Javascript em um arquivo .ts.
+Um arquivo .ts não é diretamente interpretado pelo navegador e sim compilado(ou traspilado) para um arquivo .js, este sim sendo interpretado, o que torna possível desenvolver com o Typescript em praticamente qualquer ambiente em que é possível interpretar o Javascript. Além disso, praticamente nada da sintaxe do Javascript se perde quando se escreve código em Typescript, o que permite escrever trechos de Javascript em um arquivo .ts.
 
 
 <h1>Instalação</h1>
@@ -18,7 +18,7 @@ Um arquivo .ts não é diretamente interpretado pelo navegador e sim compilado(o
 
 Para ter acesso a linguagem e suas funcionalidades é preciso determinar como esta será utilizada. O [Angular](https://github.com/VictorSantos12/Angular-2), por exemplo, deixa claro que o Typescript deve ser usado em todo o processo de criação e desenvolvimento, já que a linguagem é tida como padrão do framework. O Node, por sua vez, permite fazer uso do Typescript mediante sua instalação, logo, usar o Typescript passa a ser uma opção do desenvolvedor.
 
-Essa documentação pretende demonstrar o uso do superSet JS em ambos os ambientes, começando pelo server-side. Com isso, siga o passo a passo que será descrito a seguir:
+Essa documentação pretende demonstrar o uso do Typescript em ambos os ambientes, começando pelo server-side. Com isso, siga o passo a passo que será descrito a seguir:
 
 
 <h2>Node</h2>
@@ -87,7 +87,13 @@ Isso se dá pois o Typescript possui uma feature para fazer o import direto das 
 <h2>@types</h2>
 
 
-Perceba que a const app recebe uma instância do express, o que permite que o app use recursos como a função listen(). Porém, se bem observado, o import que disponibiliza o express está acusando a falta de definição de tipos dá biblioteca, que pode ser observado pelas reticências que antecedem sua chamada. Esse erro não é notado em uma aplicação Javascript graças a sua tipagem dinâmica, que permite definir o tipo de determinado recurso no momento em que lhe é atribuído valor. O Typescript, por sua vez, tem como principal recurso uma definição de tipos forte, logo, é preciso definir as tipagens do express.
+Perceba que a const app recebe uma instância do express, o que permite que o app use recursos como a função listen(). Porém, se bem observado, o import que disponibiliza o express está acusando a falta de definição de tipos dá biblioteca, que pode ser observado pelas reticências que antecedem sua chamada. 
+
+
+Esse erro não é notado em uma aplicação Javascript graças a sua tipagem dinâmica, que permite definir o tipo de determinado recurso no momento em que lhe é atribuído valor. 
+
+
+O Typescript, por sua vez, tem como principal recurso uma definição de tipos forte, logo, é preciso definir as tipagens do express.
 
 Para isso faremos a seguinte instalação:
 
@@ -212,7 +218,7 @@ Se a mensagem de ativação definida estiver visível, vá até o navegador e ac
 <h1>Configurando o Typescript</h1>
 
 
-O Typescript possui uma série de configurações possíveis, essas sendo responsáveis por permitir a definição de várias formas de uso para a linguagem, o que se mostra bastante importante no processo de desenvolvimento. Para criar um arquivo de configurações da linguagem no projeto anterior, use o comando a seguir:
+O Typescript possui uma série de configurações possíveis, essas sendo responsáveis por permitir a definição de várias formas de uso para a linguagem, o que se mostra bastante importante no processo de desenvolvimento. Use o comando a seguir para criar o arquivo de configurações da linguagem no projeto anterior:
 
 
     yarn tsc --init
