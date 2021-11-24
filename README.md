@@ -412,7 +412,11 @@ O resultado esperado é a ativação do servidor e a mensagem de confirmação n
 
 O TypeScript mantém uma relação incomum com o JavaScript. O TypeScript oferece todos os recursos do JavaScript e uma camada adicional sobre eles: o sistema de tipos do TypeScript.
 
-Por exemplo, o Javascript fornece tipos primitivos como string number, mas não verifica se você os atribuiu de forma consistente, o Typescript sim. Isso significa que seu código Javascript existente também é código Typescript.
+Por exemplo, o Javascript fornece tipos primitivos como string e number, mas não verifica se você os atribuiu de forma consistente, o Typescript sim. E um dos principais benefícios desse recurso é a sua capacidade de identificar comportamento inesperados no código, diminuindo a chance de bugs.
 
-O principal benefício do Typescript é a sua capacidade de identificar comportamento inesperados no seu código, diminuindo a chance de bugs. Esse recurso é bastante familiar a desenvolvedores Javascript que fazem uso do Visual Studio Code, já que o editor usa Typescript por baixo dos panos para facilitar desenvolver com o Javascript.
+
+<h2>Tipagem</h2>
+
+
+A relação dos valores com as entidades as quais eles são atribuídos é direta no Typescript, já que a linguagem reforça que os tipos associados a variáveis, constantes, funções, valores armazenados em arrays e atributos em classes, devem ser levados em conta no momento de declaração. A seguir veremos como a declaração de tipos ocorre no Typescript em cada uma dessas unidades:
 
