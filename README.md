@@ -429,7 +429,7 @@ A relação dos valores com as entidades as quais eles são atribuídos é diret
 O Javascript possui os já conhecidos primitivos: string, number e boolean, todos presentes no Typescript, recebendo as mesmas definições de tipo e identificadores. Quando uma variável é declarada, podendo ser uma const, var ou let, um valor pré definido pode ser atribuída a ela. Observe:
 
 
-<h3>String</h3>
+<h2>String</h2>
 
 
 Representação atribuída a dados textuais, definidos entre aspas('' ou ""). Para declarar uma string em Typescript, usamos o identificador <b>string</b> após o identificador da variável:
@@ -452,7 +452,7 @@ Caso uma variável receba um valor de tipo distinto do atribuído a si, este ser
 Este erro se aplica a qualquer tipagem não equivalente a declarada na unidade em operação.
 
 
-<h3>number</h3>
+<h2>number</h2>
 
 
 Representação de uma ou mais unidades numéricas que recebe a designação <b>infinity</b>, podendo ser negativa ou positivamente. Para declarar um number em Typescript, usamos o identificador <b>number</b> após o identificador da variável:
@@ -461,7 +461,7 @@ Representação de uma ou mais unidades numéricas que recebe a designação <b>
     var example: number = 0;
 
 
-<h3>boolean</h3>
+<h2>boolean</h2>
 
 
 Um boolean representa uma unidade lógica com apenas dois valores, sendo eles true e false. Para declarar um boolean em Typescript usamos o identificador <b>boolean</b> após o identificador da variável:
@@ -476,7 +476,7 @@ Um boolean representa uma unidade lógica com apenas dois valores, sendo eles tr
 As funções são os meios mais práticos de controle de fluxo de dados no Javascript. O Typescript permite a especificação tanto de valores de entrada quanto de valores de saída em suas funções:
 
 
-<h3>Parameter Type Annotations</h3>
+<h2>Parameter Type Annotations</h2>
 
 
 Para definir quais os tipos de dados os parâmetros de uma função aceita, é possível declará-los na própria função, sendo definidos após o identificador do parâmetro:
@@ -495,7 +495,7 @@ Quando um parâmetro é declarado com o Type Annotation, os argumentos lançados
     Argument of type 'boolean' is not assignable to parameter of type 'string'.ts(2345)
 
 
-<h3>Return Type Annotations</h3>
+<h2>Return Type Annotations</h2>
 
 
 Também é possível definir o tipo de retorno que uma função irá ter, sendo definido após sua lista de parâmetros:
