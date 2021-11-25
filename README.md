@@ -386,7 +386,9 @@ Para completar o ambiente de desenvolvimento, precisamos otimizar os processos. 
 
 
     npm i ts-node-dev --save-dev
-    
+
+<br>
+
     yarn add ts-node-dev --dev
 
 
@@ -418,5 +420,39 @@ Por exemplo, o Javascript fornece tipos primitivos como string e number, mas nã
 <h2>Tipagem</h2>
 
 
-A relação dos valores com as entidades as quais eles são atribuídos é direta no Typescript, já que a linguagem reforça que os tipos associados a variáveis, constantes, funções, valores armazenados em arrays e atributos em classes, devem ser levados em conta no momento de declaração. A seguir veremos como a declaração de tipos ocorre no Typescript em cada uma dessas unidades:
+A relação dos valores com as entidades as quais eles são atribuídos é direta no Typescript, já que a linguagem reforça que os tipos associados a variáveis, constantes, funções, valores armazenados em arrays e atributos em classes, devem ser levados em conta no momento de declaração. A seguir veremos como a declaração de tipos ocorre em cada uma dessas entidades:
 
+
+<h2>Primitives</h2>
+
+
+O Javascript possui os já conhecidos primitivos: string, number e boolean, todos presentes no Typescript, recebendo as mesmas definições de tipo e identificadores. Observe:
+
+
+<h3>String</h3>
+
+
+Representação atribuída a dados textuais, definidos entre aspas('' ou ""). Para declarar uma string em Typescript, usamos o identificador <b>string</b> após o identificador da variável:
+
+
+    var example: string = '';
+
+
+<h3>number</h3>
+
+
+Representação de uma ou mais unidades numéricas, e recebe a designação <b>infinity</b>, podendo ser negativa ou positivamente. Para declarar um number em Typescript usamos o identificador <b>number</b> após o identificador da variável:
+
+
+    var example: number = 0;
+
+
+<h3>boolean</h3>
+
+
+Um boolean representa uma unidade lógica com apenas dois valores, sendo eles true e false. Para declarar um boolean em Typescript usamos o identificador <b>boolean</b> após o identificador da variável:
+
+     
+     var example: boolean = false;
+
+     
