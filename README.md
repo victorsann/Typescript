@@ -420,7 +420,7 @@ Por exemplo, o Javascript fornece tipos primitivos como string e number, mas nã
 <h2>Type Annotations</h2>
 
 
-A relação dos valores com as entidades as quais eles são atribuídos é direta no Typescript, já que a linguagem reforça que os tipos associados a variáveis, constantes, funções, valores armazenados em arrays e atributos em classes, devem ser levados em conta no momento de declaração. Para isso usamos o Type Annotations. A seguir veremos como a declaração de tipos ocorre em cada uma das entidades citadas:
+A relação dos valores com as entidades as quais eles são atribuídos é direta no Typescript, já que a linguagem reforça que os tipos associados a variáveis, constantes, funções, valores armazenados em arrays e atributos em classes, devem ser levados em conta no momento de declaração, apesar de ter herdado a inferência de tipo do Javascript. Para definir os tipos em Typescript usamos o Type Annotations:
 
 
 <h2>Primitives</h2>
@@ -469,4 +469,42 @@ Um boolean representa uma unidade lógica com apenas dois valores, sendo eles tr
      
      var example: boolean = false;
 
+
+<h2>Funções</h2>
+
+
+As funções são os meios mais práticos de controle de fluxo de dados no Javascript. O Typescript permite a especificação tanto de valores de entrada quanto de valores de saída em suas funções:
+
+
+<h3>Parameter Type Annotations</h3>
+
+
+Para definir quais os tipos de dados os parâmetros de uma função aceita, é possível declará-los na própria função, sendo definidos após o identificador do parâmetro:
+
+
+    function example(parameter: string) {
+      console.log(parameter);
+    }
+
+
+Quando um parâmetro é declarado com o Type Annotation, os argumentos lançados à função que o contém são verificados:
+
+
+    examples(true);
+
+    Argument of type 'boolean' is not assignable to parameter of type 'string'.ts(2345)
+
+
+<h3>Return Type Annotations</h3>
+
+
+Também é possível definir o tipo de retorno que uma função irá ter, sendo definido após sua lista de parâmetros:
+
+
+    function example(): number {
+       return 20;
+    }
+
+
+Assim como as variáves, geralmente não é necessário atribuir um tipo específico como retormo a uma função, já que o Typescript infere esse tipo baseado no retorno reclarado na própria função.
 
