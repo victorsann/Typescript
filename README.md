@@ -417,16 +417,16 @@ O TypeScript mantém uma relação incomum com o JavaScript. O TypeScript oferec
 Por exemplo, o Javascript fornece tipos primitivos como string e number, mas não verifica se você os atribuiu de forma consistente, o Typescript sim. E um dos principais benefícios desse recurso é a sua capacidade de identificar comportamento inesperados no código, diminuindo a chance de bugs.
 
 
-<h2>Tipagem</h2>
+<h2>Type Annotations</h2>
 
 
-A relação dos valores com as entidades as quais eles são atribuídos é direta no Typescript, já que a linguagem reforça que os tipos associados a variáveis, constantes, funções, valores armazenados em arrays e atributos em classes, devem ser levados em conta no momento de declaração. A seguir veremos como a declaração de tipos ocorre em cada uma dessas entidades:
+A relação dos valores com as entidades as quais eles são atribuídos é direta no Typescript, já que a linguagem reforça que os tipos associados a variáveis, constantes, funções, valores armazenados em arrays e atributos em classes, devem ser levados em conta no momento de declaração. Para isso usamos o Type Annotations. A seguir veremos como a declaração de tipos ocorre em cada uma das entidades citadas:
 
 
 <h2>Primitives</h2>
 
 
-O Javascript possui os já conhecidos primitivos: string, number e boolean, todos presentes no Typescript, recebendo as mesmas definições de tipo e identificadores. Observe:
+O Javascript possui os já conhecidos primitivos: string, number e boolean, todos presentes no Typescript, recebendo as mesmas definições de tipo e identificadores. Quando uma variável é declarada, podendo ser uma const, var ou let, um valor pré definido pode ser atribuída a ela. Observe:
 
 
 <h3>String</h3>
@@ -438,10 +438,24 @@ Representação atribuída a dados textuais, definidos entre aspas('' ou ""). Pa
     var example: string = '';
 
 
+Caso uma variável receba um valor de tipo distinto do atribuído a si, este será rejeitado, o que irá acarretar em um erro de sintaxe: 
+
+    var example: string = '';
+    examples = 0;
+
+<br>
+
+    Type 'number' is not assignable to type 'string'.ts(2322)
+    var example: string
+
+
+Este erro se aplica a qualquer tipagem não equivalente a declarada na unidade em operação.
+
+
 <h3>number</h3>
 
 
-Representação de uma ou mais unidades numéricas, e recebe a designação <b>infinity</b>, podendo ser negativa ou positivamente. Para declarar um number em Typescript usamos o identificador <b>number</b> após o identificador da variável:
+Representação de uma ou mais unidades numéricas que recebe a designação <b>infinity</b>, podendo ser negativa ou positivamente. Para declarar um number em Typescript, usamos o identificador <b>number</b> após o identificador da variável:
 
 
     var example: number = 0;
@@ -455,4 +469,4 @@ Um boolean representa uma unidade lógica com apenas dois valores, sendo eles tr
      
      var example: boolean = false;
 
-     
+
