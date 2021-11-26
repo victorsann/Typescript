@@ -470,6 +470,26 @@ Um boolean representa uma unidade lógica com apenas dois valores, sendo eles tr
      var example: boolean = false;
 
 
+<h2>Arrays</h2>
+
+
+Para definirmos o tipo associado a um array como [1, 2, 3], pode-se usar a sintaxe number[]; caso seja um array de strings como ['A', 'B', 'C'], usamos o string[]; assim por diante. Também é possível declarar essa tipagem da seguinte forma: Array<number>, tendo exatamente o mesmo efeito. Exemplo:
+
+
+    var example: boolean[] = [true, false, true, false];
+
+<br>
+
+    var example: Array<boolean> = [true, false, true, false];
+
+
+É importante ter em mente que a inicialização valorada desses arrays não é obrigatória, podendo ser declarados da seguinte forma:
+
+
+    var example: boolean[] = [];
+
+
+
 <h2>Funções</h2>
 
 
