@@ -10,7 +10,7 @@ O Typescript é um superSet Javascript criado pela Microsft, comumente utilizado
 
 Ele reune e eleva todas as funcionalidades do Javascript, dando a elas novas formas de uso, como a inclusão do paradigma da Programação Orientada a Objetos e seus pilares, definições de tipos menos flexíveis, declaração de classes, interfaces e mais.
 
-Um arquivo .ts não é diretamente interpretado pelo navegador e sim compilado(ou traspilado) para um arquivo .js, este sim sendo interpretado, o que torna possível desenvolver com o Typescript em praticamente qualquer ambiente em que é possível interpretar o Javascript. Além disso, praticamente nada da sintaxe do Javascript se perde quando se escreve código em Typescript, o que permite escrever trechos de Javascript em um arquivo .ts.
+Um arquivo .ts não é diretamente interpretado pelo navegador e sim compilado(ou traspilado) para um arquivo .js, este sim sendo interpretado, o que torna possível desenvolver com o Typescript em praticamente qualquer ambiente em que é o Javascript possa ser interpretado. Além disso, praticamente nada da sintaxe do ECMAScript se perde, sendo possível escreve trechos de Javascript em um arquivo .ts, já esses trechos seriam basicamente replicados no processo de transpilação.
 
 
 <h1>Instalação</h1>
@@ -18,13 +18,13 @@ Um arquivo .ts não é diretamente interpretado pelo navegador e sim compilado(o
 
 Para ter acesso a linguagem e suas funcionalidades é preciso determinar como esta será utilizada. O [Angular](https://github.com/VictorSantos12/Angular-2), por exemplo, deixa claro que o Typescript deve ser usado em todo o processo de criação e desenvolvimento, já que a linguagem é tida como padrão do framework. O Node, por sua vez, permite fazer uso do Typescript mediante sua instalação, logo, usar o Typescript passa a ser uma opção do desenvolvedor.
 
-Essa documentação pretende demonstrar o uso do Typescript em ambos os ambientes, começando pelo server-side. Com isso, siga o passo a passo que será descrito a seguir:
+Essa documentação pretende demonstrar o uso do Typescript em ambos os ambientes, começando pelo server-side. Com isso, siga o passo a passo que será descrito adiante:
 
 
 <h2>Node</h2>
 
 
-O Node é sem dúvidas uma das ferramentas mais utilizadas por desenvolvedores Javascript, não só por ser prática e bastante poderosa em termos de desenvolvimento, mas porque o Node marca presença em boa parte dos frameworks web que usam o ECMAScript. Sendo também uma alternativa bastante usual no desenvolviento client-side, é com ele que iremos entender e aplicar os conceitos do Typescript no lado do servidor. Para entender e instalar o Node, leia a documentação a seguir: 
+O Node é sem dúvidas uma das ferramentas mais utilizadas por desenvolvedores Javascript, não só por ser prática e bastante poderosa em termos de desenvolvimento, mas porque o Node marca presença em boa parte dos frameworks e bibliotecas web que usam o ECMAScript. Sendo também uma alternativa bastante usual no desenvolviento client-side, é com ele que iremos entender e aplicar os conceitos do Typescript no lado do servidor. Para entender e instalar o Node, leia a documentação a seguir: 
 
 
 [Node.js](https://github.com/VictorSantos12/Node.js)
@@ -87,15 +87,11 @@ Isso se dá pois o Typescript possui uma feature para fazer o import direto das 
 <h2>@types</h2>
 
 
-Perceba que a const app recebe uma instância do express, o que permite que o app use recursos como a função listen(). Porém, se bem observado, o import que disponibiliza o express está acusando a falta de definição de tipos dá biblioteca, que pode ser observado pelas reticências que antecedem sua chamada. 
+Perceba que a const app recebe uma instância do express, permitibndo assim que o app use os recursos da lib, como a função listen(), por exemplo. Porém, se bem observado, ao criar uma instância do app, as features do express não são disponibilizadas. Além disso, o import que disponibiliza o express está acusando a falta de definição de tipos dá biblioteca, que pode ser observado pelas reticências que antecedem sua chamada. 
 
+Antes da resolução do problema, é importante entender que ao instânciar uma lib, seus tipos, ou suas features, precisam ser disponibilizados para o ambiente que as utiliza, e é graças a disponibilidade desses tipos que a vscode, por exemplo, faz uma inferência automatica dos tipos ao utilizar o dot notation.
 
-Esse erro não é notado em uma aplicação Javascript graças a sua tipagem dinâmica, que permite definir o tipo de determinado recurso no momento em que lhe é atribuído valor. 
-
-
-O Typescript, por sua vez, tem como principal recurso uma definição de tipos forte, logo, é preciso definir as tipagens do express.
-
-Para isso faremos a seguinte instalação:
+Agora, para resolver o problema, é necessário dar ao ambiente o acesso aos tipos do express. Para isso faremos a seguinte instalação:
 
 
     npm i --save-dev @types/node
@@ -105,7 +101,7 @@ Para isso faremos a seguinte instalação:
     yarn add @types/express --dev
 
 
-O que acabou de ser feito foi a instalação dos tipos da biblioteca express, ou seja, o projeto conta com um package para as funcionalidades do express e outro para seus tipos.
+Algumas bibliotecas podem ter seus tipos atrelados a si mesmas, o que os torna disponíveis no momento da instalação. Outras, como o express, permite acessar esses tipos através um package a parte, que é basicamente o que foi instalado com o comando acima. 
 
 
 <h1>Hello World</h1>
@@ -119,7 +115,7 @@ Para executar o popular Hello World, iremos criar uma rota, o definindo como res
     });
 
 
-Agora, para subir o servidor, precisamos ter em mente que o Node não entende o Typescript diretamente, como foi dito, ele precisa ser transpilado antes da execução. Caso você tente subir o servidor utilizando diretamente o Node, ele irá declarar que não é possível utilizar o import fora de um módulo:
+Agora, para subir o servidor, precisamos ter em mente que o Node não entende o Typescript diretamente, como foi dito, ele precisa ser transpilado antes da execução. Caso você tente subir o servidor utilizando diretamente o Node, ele irá declarar que não é possível utilizar recrusos do Typescript, com o import:
 
 
     import express from 'express';
@@ -135,7 +131,7 @@ Agora, para subir o servidor, precisamos ter em mente que o Node não entende o 
         at internal/main/run_main_module.js:17:47
 
 
-Para executar corretamente a ação, iremos utilizar o tsc, ou Typescript Compiler, que é disponibilizado no momento da instalção do superSet JS e que gera um arquivo .js contendo o equivalente ao código Typescript em Javascript. Com isso, use o comando a seguir para que esse arquivo seja gerado:
+Para executar corretamente a ação, iremos utilizar o tsc, ou Typescript Compiler, que é disponibilizado no momento da instalação da linguagem e que gera um arquivo .js contendo o equivalente ao código Typescript em Javascript. Com isso, use o comando a seguir para que o arquivo seja gerado:
 
 
     yarn tsc src/index.ts
@@ -157,7 +153,7 @@ Como resultado temos a criação de um arquivo index.js com as seguintes linhas 
     });
 
 
-Além disso temos um erro retornado no terminal:
+Perceba também que a execução gerou um erro no terminal:
 
 
     src/index.ts:1:8 - error TS1259: Module '"C:/Ads/Linguagens/Typescript/Docs/node_modules/@types/express/index"' can only be default-imported using the 'esModuleInterop' flag
