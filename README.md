@@ -661,7 +661,7 @@ O Typescript só irá permitir realizar ações válidas para cada membro da uni
 <h1>Type Aliases</h1>
 
 
-O Typescript disponibiliza formas distintas de declarar tipos, um objetos, por exemplo, é um tipo customizável de tipagem que pode ser feita de formas distintas. Porém, até o momento abordamos a tipagem a partir de objetos de forma direta, ou seja, apenas declarando seus atributos. O Type Alianse, possui a vantagem de permitir que um objeto criado seja utilizado mais de uma vez na declaração de tipos.
+O Typescript disponibiliza formas distintas de declarar tipos, um objetos, por exemplo, é um tipo customizável de tipagem que pode ser feita de formas distintas. Porém, até o momento abordamos a tipagem a partir de objetos de forma direta, ou seja, apenas declarando seus atributos. Uma outra forma de ter esse resultado é utilizando o Type Alianse, que possui a vantagem de permitir que um objeto criado seja utilizado mais de uma vez.
 
 Na prática ele é basicamente a associação do identificador type e o nome do objeto:
 
@@ -681,7 +681,7 @@ Na prática ele é basicamente a associação do identificador type e o nome do 
      aliasUsage({ propertyOne: 'string', propertyTwo: 2, propertyThree: false });
 
 
-Você pode nomear basicamente qualquer tipo com um type alias, não apenas objetos. Por exemplo, é possível nomear um union type com um type alias:
+É possível nomear basicamente qualquer tipo com um type alias, não apenas objetos. Por exemplo, é possível nomear um union type com um type alias:
 
 
     type example = string | number;
@@ -708,13 +708,13 @@ Uma intarface, assim como um Alias, é uma forma de nomear um object type. E na 
     interfaceUsage({ propertyOne: 'string', propertyTwo: 2, propertyThree: false });
 
 
-Da mesma forma que usamos type alias anteriormente, o exemplo acima funciona como se tivéssemos utilizado um object type anônimo. O Typescript se preocupa apenas com a estrutura do valor que enviarmos na função interfaceUsage, apenas quer que as propriedade esperadas sejam fornecidas. É essa característica que define o Typescript como um sistema de tipos estruturalmente tipado.
+Da mesma forma que usamos type alias anteriormente, o exemplo acima funciona como se tivéssemos utilizado um object type anônimo. O Typescript se preocupa apenas com a estrutura do valor que será enviado na função interfaceUsage, apenas quer que as propriedade esperadas sejam fornecidas. É essa característica que define o Typescript como um sistema de tipos estruturalmente tipado.
 
 
 <h2>Type Aliases VS Interfaces</h2>
 
 
-Como já foi dito, Type Aliases e Interfaces são bastente parecidos, e na maior parte das vezes é possível escolher livremente qual será utilizado. Quase todas as features de uma interface estão disponíveis nos Aliases, a principal distinção é que um Alias não pode ser reaberto para adicionarmos novas propiedades, já uma interface é sempre extensível.
+Como já foi dito, Type Aliases e Interfaces são semelhantes, e na maior parte das vezes é possível escolher livremente qual deles utilizar. Quase todas as features de uma interface estão disponíveis nos Aliases, a principal distinção é que um Alias não pode ser reaberto para adicionarmos novas propiedades, já uma interface é sempre extensível.
 
 
     Extendendo uma Interface                      Extensão de um Type Alias por meio de interseções
