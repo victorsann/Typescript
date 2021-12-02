@@ -410,7 +410,7 @@ O resultado esperado é a ativação do servidor e a mensagem de confirmação n
 
 O TypeScript mantém uma relação incomum com o JavaScript. O TypeScript oferece todos os recursos do JavaScript e uma camada adicional sobre eles: o sistema de tipos do TypeScript.
 
-Por exemplo, o Javascript fornece tipos primitivos como string e number, mas não verifica se você os atribuiu de forma consistente, o Typescript sim. E um dos principais benefícios desse recurso é a sua capacidade de identificar comportamento inesperados no código, diminuindo a chance de bugs.
+Por exemplo, o Javascript fornece tipos primitivos como string e number, mas não verifica se você os atribuiu de forma consistente, o Typescript sim. E um dos principais benefícios desse recurso é a sua capacidade de identificar comportamentos inesperados no código, diminuindo a chance de bugs.
 
 
 <h2>Type Annotations</h2>
@@ -469,12 +469,14 @@ Um boolean representa uma unidade lógica com apenas dois valores, sendo eles tr
 <h2>Arrays</h2>
 
 
-Para definirmos o tipo associado a um array como [1, 2, 3], pode-se usar a sintaxe number[]; caso seja um array de strings como ['A', 'B', 'C'], usamos o string[]; assim por diante. Também é possível declarar essa tipagem da seguinte forma: Array<number>, tendo exatamente o mesmo efeito. Exemplo:
+Para definirmos o tipo associado a um array como [1, 2, 3], pode-se usar a sintaxe number[]; caso seja um array de strings como ['A', 'B', 'C'], usamos o string[]; assim por diante. Exemplo:
 
 
     var example: boolean[] = [true, false, true, false];
 
-<br>
+
+ É possível TER exatamente o mesmo efeito declarando a tipagem da seguinte forma:
+
 
     var example: Array<boolean> = [true, false, true, false];
 
@@ -489,7 +491,7 @@ Para definirmos o tipo associado a um array como [1, 2, 3], pode-se usar a sinta
 <h2>Funções</h2>
 
 
-As funções são os meios mais práticos de controle de fluxo de dados no Javascript. O Typescript permite a especificação tanto de valores de entrada quanto de valores de saída em suas funções:
+As funções são os meios mais práticos de controle de fluxo de dados no Javascript. Funções no Typescript podem ter tipos pré definidos tanto nos valores de entrada quanto nos valores de saída:
 
 
 <h2>Parameter Type Annotations</h2>
@@ -514,7 +516,7 @@ Quando um parâmetro é declarado com o Type Annotation, os argumentos lançados
 <h2>Return Type Annotations</h2>
 
 
-Também é possível definir o tipo de retorno que uma função irá ter, sendo definido após sua lista de parâmetros:
+Também é possível definir o tipo de retorno que uma função irá ter, sendo declarado após sua lista de parâmetros:
 
 
     function example(): number {
