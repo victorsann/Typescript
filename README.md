@@ -448,7 +448,7 @@ Caso uma variável receba um valor de tipo distinto do atribuído a si, este ser
 Este erro se aplica a qualquer tipagem não equivalente a declarada na unidade em operação.
 
 
-<h2>number</h2>
+<h2>Number</h2>
 
 
 Representação de uma ou mais unidades numéricas que recebe a designação <b>infinity</b>, podendo ser negativa ou positivamente. Para declarar um number em Typescript, usamos o identificador <b>number</b> após o identificador da variável:
@@ -457,7 +457,7 @@ Representação de uma ou mais unidades numéricas que recebe a designação <b>
     var example: number = 0;
 
 
-<h2>boolean</h2>
+<h2>Boolean</h2>
 
 
 Um boolean representa uma unidade lógica com apenas dois valores, sendo eles true e false. Para declarar um boolean em Typescript usamos o identificador <b>boolean</b> após o identificador da variável:
@@ -466,7 +466,29 @@ Um boolean representa uma unidade lógica com apenas dois valores, sendo eles tr
      var example: boolean = false;
 
 
-<h2>Arrays</h2>
+Além dos tipos primitivos, o Typescript também disponibiliza novos modelos de tipagem, como:
+
+
+<h2>Any</h2> 
+
+
+O tipo any é declarado quando não queremos inferir um tipo específico a uma unidade representativa, evitando erros de typechecking caso valores distintos sejam atribuídos, porcessados ou tratados no objeto tipado. Exemplos:
+
+
+    let example: any = { x: 0 };
+
+
+Graças ao any type, nenhuma das declarações a seguir serão tratadas como erros de typechecking:
+
+
+    example.foo();
+    example();
+    example.bar = 100;
+    example = "hello";
+    const n: number = example;
+
+
+<h1>Arrays</h1>
 
 
 Para definirmos o tipo associado a um array como [1, 2, 3], pode-se usar a sintaxe number[]; caso seja um array de strings como ['A', 'B', 'C'], usamos o string[]; assim por diante. Exemplo:
@@ -475,7 +497,7 @@ Para definirmos o tipo associado a um array como [1, 2, 3], pode-se usar a sinta
     var example: boolean[] = [true, false, true, false];
 
 
- É possível TER exatamente o mesmo efeito declarando a tipagem da seguinte forma:
+ É possível ter exatamente o mesmo efeito declarando a tipagem da seguinte forma:
 
 
     var example: Array<boolean> = [true, false, true, false];
@@ -487,11 +509,18 @@ Para definirmos o tipo associado a um array como [1, 2, 3], pode-se usar a sinta
     var example: boolean[] = [];
 
 
+Um array declarado como any, pode receber qualquer valor:
 
-<h2>Funções</h2>
+
+    let example: any[] = [];
+    
+    example = ['string', 2, false];
 
 
-As funções são os meios mais práticos de controle de fluxo de dados no Javascript. Funções no Typescript podem ter tipos pré definidos tanto nos valores de entrada quanto nos valores de saída:
+<h1>Funções</h1>
+
+
+As funções são os meios mais práticos de controle de fluxo de dados no Javascript, o que se mantém no Typescript. Nele funções podem ter tipos pré definidos tanto nos valores de entrada quanto nos valores de saída:
 
 
 <h2>Parameter Type Annotations</h2>
@@ -513,10 +542,22 @@ Quando um parâmetro é declarado com o Type Annotation, os argumentos lançados
     Argument of type 'boolean' is not assignable to parameter of type 'string'.ts(2345)
 
 
+Caso o parâmetro de uma função seja declarado como type any, qualquer valor passado será aceito:
+
+
+    function example(parameter: any) {
+       console.log(parameter);
+    }
+    
+    example('string');
+    example(2);
+    example(false);
+
+
 <h2>Return Type Annotations</h2>
 
 
-Também é possível definir o tipo de retorno que uma função irá ter, sendo declarado após sua lista de parâmetros:
+Também é possível definir o tipo retornado por uma função, sendo este declarado após sua lista de parâmetros:
 
 
     function example(): number {
@@ -524,5 +565,5 @@ Também é possível definir o tipo de retorno que uma função irá ter, sendo 
     }
 
 
-Assim como as variáves, geralmente não é necessário atribuir um tipo específico como retormo a uma função, já que o Typescript infere esse tipo baseado no retorno reclarado na própria função.
+Um função com um retorno any declarado, pode retornar qualquer tipo de valor, porém, não atribuir um tipo como retorno teria o mesmo efeito, já que o Typescript infere a tipagem baseando-se no retorno reclarado na própria função.
 
