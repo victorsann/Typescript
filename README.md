@@ -567,3 +567,167 @@ Também é possível definir o tipo retornado por uma função, sendo este decla
 
 Um função com um retorno any declarado, pode retornar qualquer tipo de valor, porém, não atribuir um tipo como retorno teria o mesmo efeito, já que o Typescript infere a tipagem baseando-se no retorno reclarado na própria função.
 
+
+<h1>Object Type</h1>
+
+
+Sepadado dos primitives, um dos tipos frequentemente utilizados é o object type. Sendo basicamente qualquer valor que contenha propriedades. Para definir um object type no Typescript, basta declaramos suas propriedades e tipos assiciados:
+
+
+    let example: {
+       
+        propertyOne: string,
+        propertyTwo: number,
+        propertyThree: boolean,
+    
+    };
+
+
+Um object type também pode ser definido como o tipo associado ao parãmetro de uma função:
+
+
+    function objectParametre(obj: { one: string, two: number, three: boolean}) {
+        
+        console.log(obj.one, obj.two, obj.three);
+    }
+    
+    objectParametre({ one: 'string', two: 2, three: false });
+
+
+<h2>Optional Properties</h2>
+
+
+Object types tabém podem especificar que algumas ou todas as suas propriedades são opcionais. Para declarar uma propriedade como opcional usa-se o marcador <i>?</i> após seu identificador:
+
+
+    function objectParametre(obj: { one: string, two: number, three?: boolean}) {
+          
+        console.log(obj.one, obj.two, obj.three);
+    }
+    
+    // Ambos OK
+
+    objectParametre({ one: 'string', two: 2 });
+    objectParametre({ one: 'string', two: 2, three: false });
+
+
+<h1>Union Types</h1>
+
+
+O sistema de tipagem do Typescript permite criar novos tipos a partir de tipos existentes usando uma grande variedade de operadores, um deles é o <i>union type</i>. Um <i>union</i> type é um tipo formado por dois ou mais tipos, representando valores que podem ser basicamente de qualquer tipo, estes chamado de union's <i>members</i>. Exemple:
+
+
+    function example(id: string | number) {
+      console.log(id);
+    }
+
+    // OK
+    example('101');
+
+    // OK
+    example(202);
+
+
+Perceba que um union type é relativamente parecido com a declaração de un any type, porém, os tipos aceitos ainda precisam ser declarados. Caso um tipo não declarado como union member seja atribuído à unidade tipada, um erro de sintaxe será lançado:
+
+
+    function example(id: string | number) {
+      console.log(id);
+    }
+
+    example(true);
+
+<br>
+
+    Argument of type 'boolean' is not assignable to parameter of type 'string | number'.
+
+
+<h2>Trabalhando com Union Types</h2>
+
+
+O Typescript só irá permitir realizar ações válidas para cada membro da union. Por exemplo, caso você tenha a seguinte union <b>string | number</b>, não será possível utilizar métodos que são restritos a <b>string</b>, caso contrário, um erro de sintaxe será lançado:
+
+
+    function example(id: string | number) {
+      console.log(id.toUpperCase());
+    }
+
+<br>
+
+    Property 'toUpperCase' does not exist on type 'string | number'.
+    Property 'toUpperCase' does not exist on type 'number'.
+
+
+<h1>Type Aliases</h1>
+
+
+O Typescript disponibiliza formas distintas de declarar tipos, um objetos, por exemplo, é um tipo customizável de tipagem que pode ser feita de formas distintas. Porém, até o momento abordamos a tipagem a partir de objetos de forma direta, ou seja, apenas declarando seus atributos. O Type Alianse, possui a vantagem de permitir que um objeto criado seja utilizado mais de uma vez na declaração de tipos.
+
+Na prática ele é basicamente a associação do identificador type e o nome do objeto:
+
+
+    type Example = {
+        
+      propertyOne: string,
+      propertyTwo: number,
+      propertyThree: boolean,
+     
+    }    
+
+     function aliasUsage(parameter: Example) {
+         console.log(parameter.propertyOne, parameter.propertyTwo, parameter.propertyThree,);
+     }
+     
+     aliasUsage({ propertyOne: 'string', propertyTwo: 2, propertyThree: false });
+
+
+Você pode nomear basicamente qualquer tipo com um type alias, não apenas objetos. Por exemplo, é possível nomear um union type com um type alias:
+
+
+    type example = string | number;
+
+
+<h1>Interfaces</h1>
+
+
+Uma intarface, assim como um Alias, é uma forma de nomear um object type. E na prática, é basicamente a associação entre o identificador <i>interface</i> e o nome do objeto:
+
+
+    interface Example = {
+            
+      propertyOne: string,
+      propertyTwo: number,
+      propertyThree: boolean,
+     
+    } 
+
+    function interfaceUsage(parameter: Example) {
+        console.log(parameter.propertyOne, parameter.propertyTwo, parameter.propertyThree,);
+    }
+    
+    interfaceUsage({ propertyOne: 'string', propertyTwo: 2, propertyThree: false });
+
+
+Da mesma forma que usamos type alias anteriormente, o exemplo acima funciona como se tivéssemos utilizado um object type anônimo. O Typescript se preocupa apenas com a estrutura do valor que enviarmos na função interfaceUsage, apenas quer que as propriedade esperadas sejam fornecidas. É essa característica que define o Typescript como um sistema de tipos estruturalmente tipado.
+
+
+<h2>Type Aliases VS Interfaces</h2>
+
+
+Como já foi dito, Type Aliases e Interfaces são bastente parecidos, e na maior parte das vezes é possível escolher livremente qual será utilizado. Quase todas as features de uma interface estão disponíveis nos Aliases, a principal distinção é que um Alias não pode ser reaberto para adicionarmos novas propiedades, já uma interface é sempre extensível.
+
+
+    Extendendo uma Interface                                          Extensão de um Type Alias por meio de interseções
+
+
+    interface Animal {                                                        type Animal = {
+      name: string                                                              name: string
+    }                                                                         }
+ 
+    interface Bear extends Animal {                                           type Bear = Animal & { 
+      honey: boolean                                                            honey: boolean 
+    }                                                                         }
+
+    const bear = getBear()                                                    const bear = getBear() 
+    bear.name                                                                 bear.name
+    bear.honey                                                                bear.honey
