@@ -717,17 +717,17 @@ Da mesma forma que usamos type alias anteriormente, o exemplo acima funciona com
 Como já foi dito, Type Aliases e Interfaces são bastente parecidos, e na maior parte das vezes é possível escolher livremente qual será utilizado. Quase todas as features de uma interface estão disponíveis nos Aliases, a principal distinção é que um Alias não pode ser reaberto para adicionarmos novas propiedades, já uma interface é sempre extensível.
 
 
-    Extendendo uma Interface                                          Extensão de um Type Alias por meio de interseções
+    Extendendo uma Interface                      Extensão de um Type Alias por meio de interseções
 
 
-    interface Animal {                                                        type Animal = {
-      name: string                                                              name: string
-    }                                                                         }
+    interface Animal {                            type Animal = {
+      name: string                                  name: string
+    }                                             }
  
-    interface Bear extends Animal {                                           type Bear = Animal & { 
-      honey: boolean                                                            honey: boolean 
-    }                                                                         }
+    interface Bear extends Animal {               type Bear = Animal & { 
+      honey: boolean                                honey: boolean 
+    }                                             }
 
-    const bear = getBear()                                                    const bear = getBear() 
-    bear.name                                                                 bear.name
-    bear.honey                                                                bear.honey
+    const bear = getBear()                        const bear = getBear() 
+    bear.name                                     bear.name
+    bear.honey                                    bear.honey
