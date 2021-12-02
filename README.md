@@ -731,3 +731,20 @@ Como já foi dito, Type Aliases e Interfaces são bastente parecidos, e na maior
     const bear = getBear()                        const bear = getBear() 
     bear.name                                     bear.name
     bear.honey                                    bear.honey
+
+<br>
+
+    Adicionando novos campos a uma interface      Um Type Alias não pode ser alterado após ser criado
+
+
+    interface Window {                            type Window {
+      title: string                                 title: string
+    }                                             }
+
+    interface Window {                            type Window {
+      ts: TypeScriptAPI                             ts: TypeScriptAPI
+    }                                             }
+    
+    const src = 'const a = "Hello World"';        // Error: Duplicate identifier 'Window'.
+    window.ts.transpileModule(src, {});
+        
