@@ -734,17 +734,34 @@ Como já foi dito, Type Aliases e Interfaces são semelhantes, e na maior parte 
 
 <br>
 
-    Adicionando novos campos a uma interface      Um Type Alias não pode ser alterado após ser criado
+<row>
+
+    Adicionando novos campos a uma interface      
 
 
-    interface Window {                            type Window {
-      title: string                                 title: string
-    }                                             }
+    interface Window {                            
+      title: string
+    }                       
 
-    interface Window {                            type Window {
-      ts: TypeScriptAPI                             ts: TypeScriptAPI
-    }                                             }
+    interface Window {                           
+      ts: TypeScriptAPI                            
+    }                                            
     
-    const src = 'const a = "Hello World"';        // Error: Duplicate identifier 'Window'.
+    const src = 'const a = "Hello World"';        
     window.ts.transpileModule(src, {});
-        
+    
+<br>
+ 
+    Um Type Alias não pode ser alterado após ser criado
+
+    type Window {
+       title: string
+    }                           
+
+    type Window { 
+       ts: TypeScriptAPI         
+    }
+
+    // Error: Duplicate identifier 'Window'.
+
+</row>
